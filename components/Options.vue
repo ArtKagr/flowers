@@ -1,13 +1,158 @@
 <template>
   <div class="page-subscription-current_card-options">
-    <span>1 доставка</span>
-    <span>Количество доставок: 10</span>
-    <span>Период: 6 месяцев</span>
+    <custom-select
+      :current-values="[
+        '1 доставка',
+        '2 доставки',
+        '5 доставок',
+        '10 доставок',
+        '20 доставок'
+      ]"
+      title-color="green"
+      :current-width="60"
+    />
+    <div class="d-flex justify-content-between mt-4" style="width: 60%;">
+      <span class="mr-4 mt-1">Период:</span>
+      <custom-select
+        :current-values="[
+          '6 месяцев',
+          'месяц',
+          'год'
+        ]"
+      />
+    </div>
+    <div class="d-flex w-100 mt-4">
+      <b-calendar hide-header />
+    </div>
+    <span class="custom_hint">
+      Укажите повод и примерный возраст, чтобы наши флористы смогли подобрать лучшие варианты
+    </span>
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <div class="d-flex align-items-center justify-content-between mt-4 mr-4" style="width: 55%;">
+        <span class="mr-4 mt-1">Повод:</span>
+        <custom-select
+          :current-values="[
+          'Свадьба',
+          'Юбилей',
+          'День рождения'
+        ]"
+        />
+      </div>
+      <div class="d-flex align-items-center justify-content-between mt-4" style="width: 45%;">
+        <span class="mr-4 mt-1">Возраст:</span>
+        <custom-select
+          :current-values="[
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
+            '16', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+            '31', '32', '33', '34', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46',
+            '47', '48', '49', '50'
+          ]"
+        />
+      </div>
+    </div>
+    <span class="custom_hint -secondary">
+      Точный адрес доставки, а также предпочитаемое время будут уточнены оператором за несколько дней до доставки
+    </span>
+    <div class="d-flex mt-3">
+      <span class="custom_point pointer">Дополнительные пожелания</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-between w-100 mt-4">
+      <span class="mr-4 mt-1" style="width: 40%;">Любимый цветок:</span>
+      <custom-select
+        :current-values="[
+          'Незабудка',
+          'Роза',
+          'Ромашка'
+        ]"
+      />
+    </div>
+    <div class="d-flex align-items-center justify-content-between w-100 mt-3">
+      <span class="mr-4 mt-1" style="width: 40%;">Любимый цвет:</span>
+      <custom-select
+        :current-values="[
+          'Синий',
+          'Красный',
+          'Белый'
+        ]"
+      />
+    </div>
+    <div class="d-flex align-items-center justify-content-between w-100 mt-3">
+      <span class="mr-4 mt-1" style="width: 40%;">Доп. поле:</span>
+      <custom-select
+        :current-values="[
+          'Вариант 1',
+          'Вариант 2',
+          'Вариант 3'
+        ]"
+      />
+    </div>
+    <div class="d-flex align-items-center mt-4 pointer" @click="toggleValue">
+      <CheckboxChecked
+        v-if="useAllPurchase"
+        variant="success"
+        class="h3 mb-0 mr-3"
+
+      />
+      <Checkbox
+        v-else
+        class="h3 mb-0 mr-3"
+      />
+      <span>Применять ко всем доставкам</span>
+    </div>
   </div>
 </template>
 
 <script>
+import CustomSelect from "./CustomSelect";
+import Checkbox from "./icons/Checkbox";
+import CheckboxChecked from "./icons/CheckboxChecked";
 export default {
-  name: "Options"
+  name: "Options",
+  components: {CheckboxChecked, Checkbox, CustomSelect },
+  data() {
+    return {
+      useAllPurchase: false
+    }
+  },
+  methods: {
+    toggleValue() {
+      console.warn('kek')
+      this.useAllPurchase = !this.useAllPurchase
+    }
+  }
 }
 </script>
+<style scoped lang="scss">
+
+.pointer {
+  cursor: pointer;
+}
+
+.custom_hint {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 12px;
+  line-height: 18px;
+
+  &.-secondary {
+    color: #8F9199;
+  }
+}
+
+.custom_point {
+  font-size: 18px;
+  border-bottom: 1px dashed #000000;
+}
+
+.b-calendar {
+
+  &.b-calendar-grid-caption {
+    display: none !important;
+  }
+
+  &.small {
+    display: none !important;
+  }
+}
+
+</style>

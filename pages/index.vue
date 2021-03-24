@@ -1,7 +1,11 @@
 <template>
   <div class="page">
     <section class="page-slider">
-      <img src="../assets/images/slider.jpg" height="468" width="1201" alt="slider" />
+      <div class="d-flex align-items-center">
+        <CircleRowLeft class="circle_row_left" />
+        <img src="../assets/images/slider.jpg" height="468" width="1201" alt="slider" />
+        <CircleRowRight class="circle_row_right" />
+      </div>
     </section>
     <section class="page-steps">
       <h2 class="page-steps-title">Заголовок</h2>
@@ -92,7 +96,7 @@
             <div class="page-subscription-current_card-gallery-photos-photo" />
           </div>
         </div>
-      <!--        <Options />-->
+        <Options />
       </div>
       <div class="page-subscription-registration">
         <span class="page-subscription-registration-hint">
@@ -103,6 +107,75 @@
             Ваши доставки
           </span>
         </div>
+        <div class="d-flex flex-column">
+          <span class="custom_result">Тариф: Luxe 10 доставок за 12 месяцев</span>
+        </div>
+        <div class="page-subscription-registration-delivery">
+          <div class="page-subscription-registration-delivery-item">
+            <div class="d-flex justify-content-center w-100 mb-3">
+              <span class="page-subscription-registration-delivery-item-title">
+                1 ДОСТАВКА
+              </span>
+            </div>
+            <div class="page-subscription-registration-delivery-item-container">
+              <div class="page-subscription-registration-delivery-item-container-item">
+                <span class="page-subscription-registration-delivery-item-container-item-title">Дата:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">27.04.2021</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">День рождения</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">25 лет</span>
+                </span>
+              </div>
+              <div class="page-subscription-registration-delivery-item-container-item">
+                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цветок:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">Роза</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">Красный</span>
+                </span>
+              </div>
+            </div>
+            <div class="page-subscription-registration-delivery-item-container">
+
+            </div>
+
+          </div>
+          <div class="page-subscription-registration-delivery-item">
+            <div class="d-flex justify-content-center w-100 mb-3">
+              <span class="page-subscription-registration-delivery-item-title">
+                2 ДОСТАВКА
+              </span>
+            </div>
+            <div class="page-subscription-registration-delivery-item-container">
+              <div class="page-subscription-registration-delivery-item-container-item">
+                <span class="page-subscription-registration-delivery-item-container-item-title">Дата:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">27.04.2021</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">День рождения</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">25 лет</span>
+                </span>
+              </div>
+              <div class="page-subscription-registration-delivery-item-container-item">
+                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цветок:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">Роза</span>
+                </span>
+                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
+                  <span class="page-subscription-registration-delivery-item-container-item-value">Красный</span>
+                </span>
+              </div>
+            </div>
+            <div class="page-subscription-registration-delivery-item-container">
+
+            </div>
+
+          </div>
+        </div>
         <span class="page-subscription-registration-cost">
           Стоимость:
           <span class="page-subscription-registration-cost-sum">
@@ -112,6 +185,21 @@
         <div class="page-subscription-registration-button">
           <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" >Оформить подписку</b-button>
         </div>
+        <div class="d-flex align-items-center w-100 mt-4 justify-content-center">
+          <b-input placeholder="Имя*" style="width: 322px" class="custom_input mr-3" />
+          <b-input placeholder="Номер телефона*" style="width: 322px" class="custom_input mr-3" />
+          <b-button variant="success" size="md" class="custom_button">Подтвердить</b-button>
+        </div>
+        <div class="congrats">
+          <span class="congrats-text">Спасибо за подписку!</span>
+          <span class="congrats-text">Ниже вы можете оплатить первую доставку или сразу весь тариф</span>
+          <span class="congrats-hint">Оплатить сразу все со скидкой 5%</span>
+          <div class="congrats-container">
+            <b-button variant="outline-primary" class="custom_congrats_button_primary">Оплатить<br/> первую доставку</b-button>
+            <b-button variant="success" class="custom_congrats_button">Оплатить<br/> весь тариф</b-button>
+          </div>
+        </div>
+
       </div>
     </section>
     <section class="page-reviews">
@@ -253,8 +341,10 @@ import Forth from "../components/icons/Forth";
 import ChevronBottom from "../components/icons/ChevronBottom";
 import ChevronUp from "../components/icons/ChevronUp";
 import Options from "../components/Options";
+import CircleRowLeft from "../components/icons/CircleRowLeft";
+import CircleRowRight from "../components/icons/CircleRowRight";
 export default {
-  components: {Options, ChevronUp, ChevronBottom, Forth, Third, Second, First},
+  components: {CircleRowRight, CircleRowLeft, Options, ChevronUp, ChevronBottom, Forth, Third, Second, First},
   data() {
     return {
       thinkItems: {
@@ -273,3 +363,85 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+
+.custom_congrats_button_primary {
+  padding: 10px 45px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 273px;
+}
+
+.custom_congrats_button {
+  padding: 10px 45px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 273px;
+}
+
+.congrats {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 52px auto 0;
+
+  &-text {
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  &-hint {
+    font-size: 16px;
+    color: #8F9199;
+    text-align: right;
+    margin-top: 18px;
+    margin-bottom: 12px;
+  }
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.circle_row_left {
+  margin-right: -45px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.circle_row_right {
+  margin-left: -45px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.custom_result {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 27px;
+  color: #319034;
+}
+
+.custom_input {
+  border: none !important;
+  background: #F5F5F5 !important;
+  border-radius: 5px !important;
+
+  &::placeholder {
+    font-size: 14px !important;
+    color: #8F9199 !important;
+  }
+
+  &:focus {
+     box-shadow: none !important;
+   }
+}
+
+.custom_button {
+  padding: 4px 30px;
+}
+</style>

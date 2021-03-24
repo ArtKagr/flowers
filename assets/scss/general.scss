@@ -98,6 +98,10 @@ html {
         width: 364px;
         cursor: pointer;
 
+        &:hover {
+          filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.12));
+        }
+
         &-image {
           display: flex;
           background-image: url('assets/images/IMG_2611 1.jpg');
@@ -156,7 +160,7 @@ html {
           &-container {
             display: flex;
             justify-content: space-between;
-            width: 80%;
+            width: 75%;
             margin: 27px auto;
 
             &-old_price {
@@ -184,7 +188,12 @@ html {
           }
 
           &-button {
-            margin-bottom: 48px;
+            width: 187px;
+            border-radius: 0;
+            padding: 8px 50px;
+            font-size: 18px;
+            margin: 0 auto 48px;
+            color: black;
           }
         }
       }
@@ -235,12 +244,13 @@ html {
     &-registration {
       display: flex;
       flex-direction: column;
-      width: 600px;
+      width: 1200px;
       margin: 36px auto;
 
       &-hint {
         text-align: center;
-        margin-bottom: 36px;
+        margin: 0 auto 36px;
+        width: 600px;
       }
 
       &-purchases {
@@ -268,12 +278,54 @@ html {
 
       &-button {
         display: flex;
-        margin: 0 auto;
+        margin: 0 auto 29px;
 
         &-item {
-
+          font-weight: bold;
+          font-size: 18px;
+          padding: 17px 46px;
         }
 
+      }
+
+      &-delivery {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 22px auto 0;
+
+
+        &-item {
+          width: 587px;
+          padding: 35px 47px;
+          background: #F5F5F5;
+
+          &-title {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            margin: 0 auto;
+          }
+
+          &-container {
+            display: flex;
+            justify-content: space-between;
+
+            &-item {
+              display: flex;
+              flex-direction: column;
+
+              &-title {
+                color: #8F9199;
+              }
+
+              &-value {
+                color: black;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -438,4 +490,97 @@ html {
     color: #FFFFFF;
     text-align: center;
   }
+}
+
+.btn-outline-primary {
+  color: #624F3F !important;
+  border-color: #624F3F !important;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: inherit !important;
+  border-color: #624F3F !important;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  box-shadow: none !important;
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+  color: #624F3F !important;
+  background-color: transparent;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #fff !important;
+  border-color: #624F3F !important;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
+}
+
+.b-calendar {
+  display: inline-flex;
+}
+.b-calendar .b-calendar-inner {
+  min-width: 250px;
+}
+.b-calendar .b-calendar-header,
+.b-calendar .b-calendar-nav {
+  margin-bottom: 0.25rem;
+}
+.b-calendar .b-calendar-nav .btn {
+  display: none !important;
+}
+
+.b-calendar .b-calendar-grid-help {
+  display: none !important;
+}
+.b-calendar output {
+  padding: 0.25rem;
+  font-size: 80%;
+}
+.b-calendar output.readonly {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+.b-calendar .b-calendar-footer {
+  margin-top: 0.5rem;
+}
+.b-calendar .b-calendar-grid {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+.b-calendar .b-calendar-grid .row {
+  flex-wrap: nowrap;
+}
+.b-calendar .b-calendar-grid-caption {
+  text-align: left !important;
+  font-size: 20px !important;
+  font-family: Roboto, sans-serif !important;
+  padding: 0.25rem;
+  margin-bottom: 20px !important;
+}
+.b-calendar .b-calendar-grid-body .col[data-date] .btn {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 1;
+  margin: 3px auto;
+  padding: 9px 0;
+}
+.b-calendar .btn:disabled, .b-calendar .btn.disabled, .b-calendar .btn[aria-disabled=true] {
+  cursor: default;
+  pointer-events: none;
 }
