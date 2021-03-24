@@ -109,6 +109,7 @@ $theme-colors: map-merge(
       'table-color': $gray-200,
       'table-head-color': #3284e1,
       'warning-100': #eadff6,
+      'main': #624F3F
     ),
     $theme-colors
 );
@@ -181,4 +182,6 @@ $sizes: map-merge(
     $sizes
 );
 
+@import 'node_modules/bootstrap/dist/css/bootstrap.css';
+@import 'node_modules/bootstrap-vue/dist/bootstrap-vue.css';
 @import 'general';

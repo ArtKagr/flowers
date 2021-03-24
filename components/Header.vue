@@ -17,7 +17,7 @@
     </ul>
     <div class="header-contacts">
       <span class="header-contacts-phone">+7 (988) 354 44 44</span>
-      <b-button>Обратный звонок</b-button>
+      <b-button variant="outline-primary">Обратный звонок</b-button>
     </div>
   </div>
 </template>
