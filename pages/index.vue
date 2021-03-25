@@ -352,6 +352,7 @@ import FirstXs from "../components/icons/FirstXs";
 import SecondXs from "../components/icons/SecondXs";
 import ThirdXs from "../components/icons/ThirdXs";
 import ForthXs from "../components/icons/ForthXs";
+
 export default {
   components: {
     ForthXs,

@@ -1,14 +1,27 @@
 <template>
   <div class="d-flex align-items-center">
-    <div class="first">-</div>
-    <div class="second">10</div>
-    <div class="third">+</div>
+    <div class="first" @click="minus">-</div>
+    <div class="second">{{currentValue}}</div>
+    <div class="third" @click="plus">+</div>
   </div>
 </template>
 
 <script>
 export default {
-name: "CustomCounter"
+  name: "CustomCounter",
+  data() {
+    return {
+      currentValue: 10
+    }
+  },
+  methods: {
+    plus() {
+      this.currentValue++;
+    },
+    minus() {
+      this.currentValue--;
+    },
+  }
 }
 </script>
 <style scoped>

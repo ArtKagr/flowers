@@ -4,7 +4,7 @@
       <span :style="titleColor ? `color: ${titleColor}; font-weight: bold;` : '' ">{{ currentValue }}</span>
       <Rows class="custom_select-body-rows" />
     </div>
-    <div v-if="isListVisible" class="custom_select-list">
+    <div v-show="isListVisible" class="custom_select-list">
       <span
         v-for="(item, key) in currentValues"
         :key="key"
@@ -19,6 +19,7 @@
 
 <script>
 import Rows from "./Rows";
+
 export default {
   name: "CustomSelect",
   components: {Rows},
@@ -47,9 +48,16 @@ export default {
       isListVisible: false
     }
   },
+
   methods: {
+    hide() {
+      this.isListVisible = false
+    },
     toggleVisible() {
       this.isListVisible = !this.isListVisible
+      let els = document.getElementsByClassName('custom_select-list');
+      Array.from(els).forEach((el) => el.style.display = 'none')
+
     },
     selectItem(item) {
       this.currentValue = item
@@ -58,13 +66,18 @@ export default {
   },
   created() {
     this.currentValue = this.currentValues && this.currentValues.length ? this.currentValues[0] : 'Нет данных'
+    window.addEventListener('click', (e) => {
+      if (!this.$el.contains(e.target)){
+        this.isListVisible = false
+      }
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .custom_select {
-
+  position: relative;
   @media screen and (max-width: 769px) {
     width: 100% !important;
   }
@@ -89,8 +102,8 @@ export default {
     z-index: 100;
     position: absolute;
     max-height: 200px;
-    width: 200px;
     overflow: auto;
+    width: 100%;
 
     &-item {
       border-radius: 5px;
