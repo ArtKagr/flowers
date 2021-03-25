@@ -1,13 +1,50 @@
 html {
   font-family: Roboto, sans-serif;
+  width: 1200px;
+  margin: 0 auto;
+  @media screen and (max-width: 769px) {
+    width: 769px;
+  }
+  @media screen and (max-width: 700px) {
+    width: 700px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 650px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 550px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 500px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 450px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 400px;
+  }
+  @media screen and (max-width: 350px) {
+    width: 350px;
+  }
+  @media screen and (max-width: 300px) {
+    width: 300px;
+  }
+
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1200px;
   margin: 24px auto 16px;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 18px;
+  }
 
   &-menu {
     display: flex;
@@ -23,6 +60,10 @@ html {
         cursor: pointer;
       }
     }
+
+    @media screen and (max-width: 769px) {
+      display: none;
+    }
   }
 
   &-contacts {
@@ -31,9 +72,17 @@ html {
       color: #624F3F;
       margin-right: 24px;
       font-weight: 500;
+
+      @media screen and (max-width: 769px) {
+        display: none;
+      }
     }
 
-
+    &-button {
+      @media screen and (max-width: 769px) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -44,59 +93,116 @@ html {
 
   &-slider {
     margin: 0 auto;
+
+    &-image {
+      width: 95%;
+
+      @media screen and (max-width: 321px) {
+        display: none;
+      }
+    }
+
+    &-xs_image {
+      @media screen and (min-width: 321px) {
+        display: none;
+        background-size: cover;
+      }
+    }
   }
 
   &-steps {
     display: flex;
     flex-direction: column;
     margin: 0 auto 48px;
-    width: 1060px;
+    width: 90%;
+
+    @media screen and (max-width: 769px) {
+      padding: 0 24px;
+      margin: 0 auto 24px;
+    }
 
     &-title {
       font-size: 42px;
       text-align: center;
       width: 100%;
       margin: 48px 0 32px;
+
+      @media screen and (max-width: 769px) {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 24px 0 32px;
+      }
     }
 
     &-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       width: 100%;
     }
   }
 
   &-video {
     background: #C4C4C4;
-    width: 1105px;
+    width: 90%;
     height: 586px;
     margin: 48px auto 0;
+
+    @media screen and (max-width: 769px) {
+      height: 151px;
+      margin: 24px auto 0;
+    }
   }
 
   &-subscription {
     display: flex;
     flex-direction: column;
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
 
     &-title {
       font-size: 42px;
       text-align: center;
       margin: 48px 0 32px;
+
+      @media screen and (max-width: 769px) {
+        font-size: 20px;
+      }
     }
 
     &-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 1200px;
+      width: 100%;
+
+      @media screen and (max-width: 769px) {
+        justify-content: center;
+        padding: 0 18px;
+      }
 
       &-card {
         display: flex;
         flex-direction: column;
         width: 364px;
         cursor: pointer;
+
+        &.-first {
+
+        }
+
+        &.-second {
+          @media screen and (max-width: 769px) {
+            display: none;
+          }
+        }
+
+        &.-third {
+          @media screen and (max-width: 769px) {
+            display: none;
+          }
+        }
 
         &:hover {
           filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.12));
@@ -202,13 +308,24 @@ html {
     &-current_card {
       display: flex;
       justify-content: space-between;
-      width: 1200px;
+      width: 100%;
       margin-top: 40px;
+
+      @media screen and (max-width: 769px) {
+        flex-direction: column;
+        justify-content: center;
+      }
 
       &-gallery {
         display: flex;
         flex-direction: column;
         width: 655px;
+
+        @media screen and (max-width: 769px) {
+          margin: 0 auto 20px;
+          width: 100%;
+          padding: 0 18px;
+        }
 
         &-main_photo {
           display: flex;
@@ -216,6 +333,13 @@ html {
           width: 655px;
           height: 655px;
           margin-bottom: 30px;
+
+          @media screen and (max-width: 769px) {
+            width: 310px;
+            height: 310px;
+            background-size: cover;
+            margin-bottom: 16px;
+          }
         }
 
         &-photos {
@@ -227,6 +351,12 @@ html {
             width: 200px;
             height: 200px;
             background: #F5F5F5;
+
+            @media screen and (max-width: 769px) {
+              width: 90px;
+              height: 90px;
+              background-size: cover;
+            }
           }
 
         }
@@ -238,19 +368,33 @@ html {
         width: 100%;
         margin-left: 42px;
 
+        @media screen and (max-width: 769px) {
+          margin-left: 0;
+          padding: 0 18px;
+        }
+
       }
     }
 
     &-registration {
       display: flex;
       flex-direction: column;
-      width: 1200px;
+      width: 100%;
       margin: 36px auto;
+
+      @media screen and (max-width: 769px) {
+        margin: 0 auto;
+      }
 
       &-hint {
         text-align: center;
         margin: 0 auto 36px;
-        width: 600px;
+        width: 50%;
+
+        @media screen and (max-width: 769px) {
+          width: 100%;
+        }
+
       }
 
       &-purchases {
@@ -269,6 +413,11 @@ html {
         font-size: 30px;
         text-align: center;
         margin: 36px auto;
+
+        @media screen and (max-width: 769px) {
+          font-size: 20px;
+          margin: 30px auto 19px;
+        }
 
         &-sum {
           font-weight: 700;
@@ -295,11 +444,22 @@ html {
         width: 100%;
         margin: 22px auto 0;
 
+        @media screen and (max-width: 769px) {
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 18px;
+        }
+
 
         &-item {
           width: 587px;
           padding: 35px 47px;
           background: #F5F5F5;
+
+          @media screen and (max-width: 769px) {
+            width: 100%;
+            margin-bottom: 24px;
+          }
 
           &-title {
             font-weight: bold;
@@ -311,6 +471,11 @@ html {
           &-container {
             display: flex;
             justify-content: space-between;
+
+            @media screen and (max-width: 769px) {
+              flex-direction: column;
+              justify-content: center;
+            }
 
             &-item {
               display: flex;
@@ -333,7 +498,7 @@ html {
   &-reviews {
     display: flex;
     flex-direction: column;
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
 
     &-title {
@@ -342,6 +507,11 @@ html {
       font-size: 42px;
       text-align: center;
       margin: 48px 0 32px;
+
+      @media screen and (max-width: 769px) {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
 
     &-container {
@@ -349,9 +519,30 @@ html {
       align-items: center;
       justify-content: space-between;
 
+      @media screen and (max-width: 769px) {
+        justify-content: center;
+      }
+
       &-card {
         display: flex;
         flex-direction: column;
+
+
+        &.-first {
+
+        }
+
+        &.-second {
+          @media screen and (max-width: 769px) {
+            display: none;
+          }
+        }
+
+        &.-third {
+          @media screen and (max-width: 769px) {
+            display: none;
+          }
+        }
 
         &-image {
           display: flex;
@@ -359,11 +550,22 @@ html {
           width: 364px;
           height: 364px;
           margin-bottom: 6px;
+
+          @media screen and (max-width: 769px) {
+            width: 287px;
+            height: 287px;
+          }
+
+
         }
 
         &-description {
           font-size: 14px;
           width: 364px;
+
+          @media screen and (max-width: 769px) {
+            width: 287px;
+          }
 
           &-more {
             color: lightgrey;
@@ -377,13 +579,18 @@ html {
   &-think {
     display: flex;
     flex-direction: column;
-    width: 930px;
+    width: 80%;
     margin: 36px auto 0;
 
     &-title {
       font-size: 42px;
       text-align: center;
       margin: 48px 0 32px;
+
+      @media screen and (max-width: 769px) {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
 
     &-container {
@@ -397,6 +604,10 @@ html {
         padding: 27px 55px;
         border-bottom: 0.8px solid #E2E2E2;
 
+        @media screen and (max-width: 769px) {
+          padding: 16px 14px;
+        }
+
         &-head {
           display: flex;
           align-items: center;
@@ -405,6 +616,10 @@ html {
           &-title {
             font-weight: 500;
             font-size: 18px;
+
+            @media screen and (max-width: 769px) {
+              font-size: 14px;
+            }
           }
 
           &-chevron {
@@ -424,13 +639,22 @@ html {
   &-best_flowers {
     display: flex;
     flex-direction: column;
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
+
+    @media screen and (max-width: 769px) {
+      padding: 0 18px;
+    }
 
     &-title {
       font-size: 42px;
       text-align: center;
       margin: 48px 0 32px;
+
+      @media screen and (max-width: 769px) {
+        font-size: 20px;
+        font-weight: bold;
+      }
     }
 
     &-container {
@@ -443,6 +667,12 @@ html {
         height: 782px;
         background: #C4C4C4;
         margin-bottom: 54px;
+
+        @media screen and (max-width: 769px) {
+          width: 314px;
+          height: 314px;
+          margin-bottom: 16px;
+        }
       }
 
       &-column {
@@ -450,6 +680,10 @@ html {
         flex-direction: column;
         margin-left: 54px;
         margin-bottom: 54px;
+
+        @media screen and (max-width: 769px) {
+          display: none;
+        }
 
         &-photo {
           width: 364px;
@@ -467,6 +701,12 @@ html {
         height: 364px;
         background: #C4C4C4;
         margin-bottom: 54px;
+
+        @media screen and (max-width: 769px) {
+          width: 150px;
+          height: 150px;
+          margin-bottom: 16px;
+        }
       }
     }
   }

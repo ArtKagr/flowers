@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <BurgerMenu class="burger_menu" />
     <Logo />
     <ul class="header-menu">
       <li class="header-menu-item">
@@ -17,19 +18,47 @@
     </ul>
     <div class="header-contacts">
       <span class="header-contacts-phone">+7 (988) 354 44 44</span>
-      <b-button variant="outline-primary" class="custom_button">Обратный звонок</b-button>
+      <b-button variant="outline-primary" class="header-contacts-button custom_button">Обратный звонок</b-button>
     </div>
+    <Basket class="basket" />
+    <Phone class="phone" />
+
   </div>
 </template>
 
 <script>
 import Logo from "./Logo";
+import BurgerMenu from "./icons/BurgerMenu";
+import Basket from "./icons/Basket";
+import Phone from "./icons/Phone";
 export default {
 name: "Header",
-  components: {Logo}
+  components: {Phone, Basket, BurgerMenu, Logo},
 }
 </script>
 <style lang="scss" scoped>
+.burger_menu {
+  margin-right: 12px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.basket {
+  margin-right: 12px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.phone {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
 .custom_button {
   padding: 8px 21px;
   font-weight: 500;

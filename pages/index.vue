@@ -3,24 +3,29 @@
     <section class="page-slider">
       <div class="d-flex align-items-center">
         <CircleRowLeft class="circle_row_left" />
-        <img src="../assets/images/slider.jpg" height="468" width="1201" alt="slider" />
+        <img class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
+        <img class="page-slider-xs_image" src="../assets/images/Frame 7.jpg" alt="slider_xs" />
         <CircleRowRight class="circle_row_right" />
       </div>
     </section>
     <section class="page-steps">
       <h2 class="page-steps-title">Заголовок</h2>
       <div class="page-steps-container">
-        <First />
-        <Second />
-        <Third />
-        <Forth />
+        <First class="step" />
+        <FirstXs class="step-xs" />
+        <Second class="step" />
+        <SecondXs class="step-xs" />
+        <Third class="step" />
+        <ThirdXs class="step-xs" />
+        <Forth class="step" />
+        <ForthXs class="step-xs" />
       </div>
     </section>
     <section class="page-video" />
     <section class="page-subscription">
       <h2 class="page-subscription-title">Выберите свою подписку</h2>
       <div class="page-subscription-container">
-        <div class="page-subscription-container-card">
+        <div class="page-subscription-container-card -first">
           <div class="page-subscription-container-card-image">
             <div class="page-subscription-container-card-image-sale">
               <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
@@ -42,7 +47,7 @@
             <b-button variant="outline-primary" class="page-subscription-container-card-description-button">В корзину</b-button>
           </div>
         </div>
-        <div class="page-subscription-container-card">
+        <div class="page-subscription-container-card -second">
           <div class="page-subscription-container-card-image">
             <div class="page-subscription-container-card-image-sale">
               <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
@@ -64,7 +69,7 @@
             <b-button variant="outline-primary" class="page-subscription-container-card-description-button">В корзину</b-button>
           </div>
         </div>
-        <div class="page-subscription-container-card">
+        <div class="page-subscription-container-card -third">
           <div class="page-subscription-container-card-image">
             <div class="page-subscription-container-card-image-sale">
               <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
@@ -185,16 +190,16 @@
         <div class="page-subscription-registration-button">
           <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" >Оформить подписку</b-button>
         </div>
-        <div class="d-flex align-items-center w-100 mt-4 justify-content-center">
-          <b-input placeholder="Имя*" style="width: 322px" class="custom_input mr-3" />
-          <b-input placeholder="Номер телефона*" style="width: 322px" class="custom_input mr-3" />
+        <div class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
+          <b-input placeholder="Имя*" style="width: 322px" class="custom_input" />
+          <b-input placeholder="Номер телефона*" style="width: 322px" class="custom_input" />
           <b-button variant="success" size="md" class="custom_button">Подтвердить</b-button>
         </div>
-        <div class="congrats">
+        <div class="congrats custom_item">
           <span class="congrats-text">Спасибо за подписку!</span>
           <span class="congrats-text">Ниже вы можете оплатить первую доставку или сразу весь тариф</span>
           <span class="congrats-hint">Оплатить сразу все со скидкой 5%</span>
-          <div class="congrats-container">
+          <div class="congrats-container custom_item">
             <b-button variant="outline-primary" class="custom_congrats_button_primary">Оплатить<br/> первую доставку</b-button>
             <b-button variant="success" class="custom_congrats_button">Оплатить<br/> весь тариф</b-button>
           </div>
@@ -205,7 +210,7 @@
     <section class="page-reviews">
       <h2 class="page-reviews-title">Отзывы клиентов</h2>
       <div class="page-reviews-container">
-        <div class="page-reviews-container-card">
+        <div class="page-reviews-container-card -first">
           <div class="page-reviews-container-card-image" />
           <div class="page-reviews-container-card-description">
             anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -214,7 +219,7 @@
             <span class="page-reviews-container-card-description-more">... ещё</span>
           </div>
         </div>
-        <div class="page-reviews-container-card">
+        <div class="page-reviews-container-card -second">
           <div class="page-reviews-container-card-image" />
           <div class="page-reviews-container-card-description">
             anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -223,7 +228,7 @@
             <span class="page-reviews-container-card-description-more">... ещё</span>
           </div>
         </div>
-        <div class="page-reviews-container-card">
+        <div class="page-reviews-container-card -third">
           <div class="page-reviews-container-card-image" />
           <div class="page-reviews-container-card-description">
             anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -343,8 +348,16 @@ import ChevronUp from "../components/icons/ChevronUp";
 import Options from "../components/Options";
 import CircleRowLeft from "../components/icons/CircleRowLeft";
 import CircleRowRight from "../components/icons/CircleRowRight";
+import FirstXs from "../components/icons/FirstXs";
+import SecondXs from "../components/icons/SecondXs";
+import ThirdXs from "../components/icons/ThirdXs";
+import ForthXs from "../components/icons/ForthXs";
 export default {
-  components: {CircleRowRight, CircleRowLeft, Options, ChevronUp, ChevronBottom, Forth, Third, Second, First},
+  components: {
+    ForthXs,
+    ThirdXs,
+    SecondXs,
+    FirstXs, CircleRowRight, CircleRowLeft, Options, ChevronUp, ChevronBottom, Forth, Third, Second, First},
   data() {
     return {
       thinkItems: {
@@ -365,11 +378,35 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+.step {
+  @media screen and (max-width: 768px) {
+    display: none
+  }
+
+  &-xs {
+    @media screen and (min-width: 768px) {
+      display: none
+    }
+  }
+}
+
+.custom_item {
+  @media screen and (max-width: 769px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .custom_congrats_button_primary {
   padding: 10px 45px;
   font-size: 18px;
   font-weight: bold;
   width: 273px;
+
+  @media screen and (max-width: 769px) {
+    margin-bottom: 12px;
+  }
+
 }
 
 .custom_congrats_button {
@@ -385,6 +422,11 @@ export default {
   width: 600px;
   margin: 52px auto 0;
 
+  @media screen and (max-width: 769px) {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
   &-text {
     font-weight: 500;
     font-size: 18px;
@@ -397,6 +439,10 @@ export default {
     text-align: right;
     margin-top: 18px;
     margin-bottom: 12px;
+
+    @media screen and (max-width: 769px) {
+      text-align: center;
+    }
   }
 
   &-container {
@@ -410,12 +456,21 @@ export default {
   margin-right: -45px;
   cursor: pointer;
   z-index: 100;
+
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
+
 }
 
 .circle_row_right {
   margin-left: -45px;
   cursor: pointer;
   z-index: 100;
+
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
 }
 
 .custom_result {
@@ -424,12 +479,22 @@ export default {
   text-align: center;
   margin-top: 27px;
   color: #319034;
+
+  @media screen and (max-width: 769px) {
+    font-size: 20px;
+  }
 }
 
 .custom_input {
   border: none !important;
   background: #F5F5F5 !important;
   border-radius: 5px !important;
+  margin-right: 16px;
+
+  @media screen and (max-width: 769px) {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
 
   &::placeholder {
     font-size: 14px !important;

@@ -65,6 +65,10 @@ export default {
 <style lang="scss" scoped>
 .custom_select {
 
+  @media screen and (max-width: 769px) {
+    width: 100% !important;
+  }
+
   &-body {
     display: flex;
     align-items: center;
@@ -72,7 +76,7 @@ export default {
     background: #F5F5F5;
     border-radius: 5px;
     cursor: pointer;
-    padding: 14px 26px;
+    padding: 11px 26px;
 
     &-rows {
       cursor: pointer;

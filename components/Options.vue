@@ -11,7 +11,11 @@
       title-color="green"
       :current-width="60"
     />
-    <div class="d-flex justify-content-between mt-4" style="width: 60%;">
+    <div class="d-flex justify-content-between mt-2 custom_width" style="width: 60%;">
+      <span class="mr-2 mt-1">Количество доставок:</span>
+      <custom-counter />
+    </div>
+    <div class="d-flex justify-content-between mt-2 custom_width" style="width: 60%;">
       <span class="mr-4 mt-1">Период:</span>
       <custom-select
         :current-values="[
@@ -21,14 +25,14 @@
         ]"
       />
     </div>
-    <div class="d-flex w-100 mt-4">
+    <div class="d-flex w-100 mt-4 custom_calendar">
       <b-calendar hide-header />
     </div>
     <span class="custom_hint">
       Укажите повод и примерный возраст, чтобы наши флористы смогли подобрать лучшие варианты
     </span>
-    <div class="d-flex align-items-center justify-content-between w-100">
-      <div class="d-flex align-items-center justify-content-between mt-4 mr-4" style="width: 55%;">
+    <div class="d-flex align-items-center justify-content-between w-100 custom_row">
+      <div class="d-flex align-items-center justify-content-between mt-3 mr-4 custom_row-item" style="width: 55%;">
         <span class="mr-4 mt-1">Повод:</span>
         <custom-select
           :current-values="[
@@ -38,7 +42,7 @@
         ]"
         />
       </div>
-      <div class="d-flex align-items-center justify-content-between mt-4" style="width: 45%;">
+      <div class="d-flex align-items-center justify-content-between mt-3 custom_row-item" style="width: 45%;">
         <span class="mr-4 mt-1">Возраст:</span>
         <custom-select
           :current-values="[
@@ -56,7 +60,7 @@
     <div class="d-flex mt-3">
       <span class="custom_point pointer">Дополнительные пожелания</span>
     </div>
-    <div class="d-flex align-items-center justify-content-between w-100 mt-4">
+    <div class="d-flex align-items-center justify-content-between w-100 mt-3">
       <span class="mr-4 mt-1" style="width: 40%;">Любимый цветок:</span>
       <custom-select
         :current-values="[
@@ -106,9 +110,10 @@
 import CustomSelect from "./CustomSelect";
 import Checkbox from "./icons/Checkbox";
 import CheckboxChecked from "./icons/CheckboxChecked";
+import CustomCounter from "./CustomCounter";
 export default {
   name: "Options",
-  components: {CheckboxChecked, Checkbox, CustomSelect },
+  components: {CustomCounter, CheckboxChecked, Checkbox, CustomSelect },
   data() {
     return {
       useAllPurchase: false
@@ -123,6 +128,31 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+
+.custom_calendar {
+  @media screen and (max-width: 769px) {
+    justify-content: center;
+  }
+}
+
+.custom_row {
+  @media screen and (max-width: 769px) {
+    flex-direction: column;
+  }
+
+  &-item {
+    @media screen and (max-width: 769px) {
+      width: 100% !important;
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.custom_width {
+  @media screen and (max-width: 769px) {
+    width: 100% !important;
+  }
+}
 
 .pointer {
   cursor: pointer;
