@@ -2,10 +2,16 @@
   <div class="page">
     <section class="page-slider">
       <div class="d-flex align-items-center">
-        <CircleRowLeft class="circle_row_left" />
-        <img class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
+        <div style="z-index: 100;" @click="toggleSlider('last')">
+          <CircleRowLeft class="circle_row_left" />
+        </div>
+        <img v-if="currentSlider === 'slider'" class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
+        <img v-else-if="currentSlider === 'flower_1'" class="page-slider-image" src="../assets/images/IMG_6593 1.jpg" alt="flower_1" />
+        <img v-else-if="currentSlider === 'flower_2'" class="page-slider-image" src="../assets/images/IMG_5294 2.jpg" alt="flower_2" />
         <img class="page-slider-xs_image" src="../assets/images/Frame 7.jpg" alt="slider_xs" />
-        <CircleRowRight class="circle_row_right" />
+        <div style="z-index: 100;" @click="toggleSlider('next')">
+          <CircleRowRight class="circle_row_right" />
+        </div>
       </div>
     </section>
     <section class="page-steps">
@@ -366,13 +372,29 @@ export default {
         second: false,
         third: false,
         forth: false,
-        fifth: false,
-      }
+        fifth: false
+      },
+      slider: [
+        'slider',
+        'flower_1',
+        'flower_2'
+      ],
+      currentSlider: null
     }
+  },
+  created() {
+    this.currentSlider = this.slider[0]
   },
   methods: {
     toggleThinkItem(field) {
       this.thinkItems[field] = !this.thinkItems[field]
+    },
+    toggleSlider(flag) {
+      if (this.slider.length && this.slider.length > 1 && this.slider.findIndex(slider => slider === this.currentSlider) !== 0 && flag === 'last') {
+        this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) - 1]
+      } else if (this.slider.findIndex(slider => slider === this.currentSlider) !== (this.slider.length - 1) && flag === 'next') {
+        this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) + 1]
+      }
     }
   }
 }
