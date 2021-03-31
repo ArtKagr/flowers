@@ -194,7 +194,8 @@
           </span>
         </span>
         <div class="page-subscription-registration-button">
-          <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" >Оформить подписку</b-button>
+          <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" @click="fetchData">Оформить подписку</b-button>
+          <span v-if="status === 'success'" class="mt-2">Данные получены</span>
         </div>
         <div class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
           <b-input placeholder="Имя*" style="width: 322px" class="custom_input" />
@@ -384,6 +385,11 @@ export default {
   created() {
     this.currentSlider = this.slider[0]
   },
+  computed: {
+    status() {
+      return this.$store.getters['data/getStatus']
+    }
+  },
   methods: {
     toggleThinkItem(field) {
       this.thinkItems[field] = !this.thinkItems[field]
@@ -394,6 +400,9 @@ export default {
       } else if (this.slider.findIndex(slider => slider === this.currentSlider) !== (this.slider.length - 1) && flag === 'next') {
         this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) + 1]
       }
+    },
+    fetchData() {
+      this.$store.dispatch('data/fetchData')
     }
   }
 }

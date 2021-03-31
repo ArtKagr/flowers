@@ -427,6 +427,7 @@ html {
 
       &-button {
         display: flex;
+        flex-direction: column;
         margin: 0 auto 29px;
 
         &-item {
