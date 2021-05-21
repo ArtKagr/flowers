@@ -188,6 +188,10 @@ html {
         width: 364px;
         cursor: pointer;
 
+        &:hover {
+          transform: scale(1.05)
+        }
+
         &.-first {
 
         }
@@ -427,6 +431,7 @@ html {
 
       &-button {
         display: flex;
+        flex-direction: column;
         margin: 0 auto 29px;
 
         &-item {
@@ -823,4 +828,14 @@ html {
 .b-calendar .btn:disabled, .b-calendar .btn.disabled, .b-calendar .btn[aria-disabled=true] {
   cursor: default;
   pointer-events: none;
+}
+
+.custom_link {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
 }

@@ -1,19 +1,21 @@
 <template>
-  <div class="header">
+  <div class="header" id="header">
     <BurgerMenu class="burger_menu" />
-    <Logo />
+    <nuxt-link to="/">
+      <Logo />
+    </nuxt-link>
     <ul class="header-menu">
       <li class="header-menu-item">
-        <a class="header-menu-item-link">Тарифы</a>
+        <a class="header-menu-item-link" href="#rate">Тарифы</a>
       </li>
       <li class="header-menu-item">
-        <a class="header-menu-item-link">Отзывы</a>
+        <a class="header-menu-item-link" href="#reviews">Отзывы</a>
       </li>
       <li class="header-menu-item">
-        <a class="header-menu-item-link">Что нужно знать</a>
+        <a class="header-menu-item-link" href="#think">Что нужно знать</a>
       </li>
       <li class="header-menu-item">
-        <a class="header-menu-item-link">Галерея</a>
+        <a class="header-menu-item-link" href="#best_flowers">Галерея</a>
       </li>
     </ul>
     <div class="header-contacts">
