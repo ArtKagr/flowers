@@ -200,10 +200,16 @@
           </span>
         </span>
         <div class="page-subscription-registration-button">
-          <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" @click="fetchData">Оформить подписку</b-button>
+          <b-button
+            variant="success"
+            size="lg"
+            class="page-subscription-registration-button-item"
+            @click="fetchData">
+            Оформить подписку
+          </b-button>
           <span v-if="status === 'success'" class="mt-2">Данные получены</span>
         </div>
-        <div class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
+        <div v-if="subscribeFieldsShown" class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
           <b-input placeholder="Имя*" style="width: 322px" class="custom_input" />
           <b-input placeholder="Номер телефона*" style="width: 322px" class="custom_input" />
           <b-button variant="success" size="md" class="custom_button">Подтвердить</b-button>
@@ -385,7 +391,8 @@ export default {
         'flower_1',
         'flower_2'
       ],
-      currentSlider: null
+      currentSlider: null,
+      subscribeFieldsShown: false
     }
   },
   created() {
@@ -403,12 +410,20 @@ export default {
     toggleSlider(flag) {
       if (this.slider.length && this.slider.length > 1 && this.slider.findIndex(slider => slider === this.currentSlider) !== 0 && flag === 'last') {
         this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) - 1]
+      } else if (this.slider.length && this.slider.length > 1 && this.slider.findIndex(slider => slider === this.currentSlider) === 0 && flag === 'last') {
+        this.currentSlider = this.slider[this.slider.length - 1]
       } else if (this.slider.findIndex(slider => slider === this.currentSlider) !== (this.slider.length - 1) && flag === 'next') {
         this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) + 1]
+      } else if (this.slider.findIndex(slider => slider === this.currentSlider) === (this.slider.length - 1) && flag === 'next') {
+        this.currentSlider = this.slider[0]
       }
     },
     fetchData() {
       this.$store.dispatch('data/fetchData')
+      this.subscribeFlowers()
+    },
+    subscribeFlowers () {
+      this.subscribeFieldsShown = !this.subscribeFieldsShown
     }
   }
 }

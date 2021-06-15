@@ -771,6 +771,7 @@ html {
 
 .b-calendar {
   display: inline-flex;
+  position: relative;
 }
 .b-calendar .b-calendar-inner {
   min-width: 250px;
@@ -779,9 +780,9 @@ html {
 .b-calendar .b-calendar-nav {
   margin-bottom: 0.25rem;
 }
-.b-calendar .b-calendar-nav .btn {
-  display: none !important;
-}
+//.b-calendar .b-calendar-nav .btn {
+//  display: none !important;
+//}
 
 .b-calendar .b-calendar-grid-help {
   display: none !important;
