@@ -405,8 +405,11 @@ html {
         display: inline-block;
         font-size: 24px;
         margin: 0 auto;
+        cursor: pointer;
 
         &-title {
+          margin: 0 auto;
+          width: 100%;
           border-bottom: 2px dashed #000000;
         }
       }
@@ -780,9 +783,47 @@ html {
 .b-calendar .b-calendar-nav {
   margin-bottom: 0.25rem;
 }
-//.b-calendar .b-calendar-nav .btn {
-//  display: none !important;
-//}
+.b-calendar {
+
+  &-nav {
+    display: flex !important;
+    justify-content: flex-end !important;
+    width: 100% !important;
+    position: absolute;
+
+    button {
+      flex: 0 !important;
+
+      &:first-child {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        display: none;
+      }
+
+      &:last-child {
+        display: none;
+      }
+
+      &:active, &:hover {
+        background-color: inherit !important;
+
+        svg {
+          color: black !important;
+        }
+      }
+
+      &:focus {
+        box-shadow: none !important;
+
+        svg {
+          color: black !important;
+        }
+      }
+    }
+  }
+}
 
 .b-calendar .b-calendar-grid-help {
   display: none !important;
