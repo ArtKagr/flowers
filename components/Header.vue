@@ -20,7 +20,9 @@
     </ul>
     <div class="header-contacts">
       <span class="header-contacts-phone">+7 (988) 354 44 44</span>
-      <b-button variant="outline-primary" class="header-contacts-button custom_button">Обратный звонок</b-button>
+      <a href="tel:+79883544444">
+        <b-button variant="outline-primary" class="header-contacts-button custom_button">Обратный звонок</b-button>
+      </a>
     </div>
     <Basket class="basket" />
     <Phone class="phone" />

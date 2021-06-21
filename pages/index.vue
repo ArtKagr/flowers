@@ -119,78 +119,81 @@
         <span class="page-subscription-registration-hint">
           Вы можете сразу указать все даты доставок либо согласовать их позднее при звонке оператора
         </span>
-        <div class="page-subscription-registration-purchases">
+        <div
+          class="page-subscription-registration-purchases"
+          @click="togglePurchasesList"
+        >
           <span class="page-subscription-registration-purchases-title">
             Ваши доставки
           </span>
         </div>
-        <div class="d-flex flex-column">
+        <div v-if="isPurchasesListShown" class="d-flex flex-column">
           <span class="custom_result">Тариф: Luxe 10 доставок за 12 месяцев</span>
-        </div>
-        <div class="page-subscription-registration-delivery">
-          <div class="page-subscription-registration-delivery-item">
-            <div class="d-flex justify-content-center w-100 mb-3">
+          <div class="page-subscription-registration-delivery">
+            <div class="page-subscription-registration-delivery-item">
+              <div class="d-flex justify-content-center w-100 mb-3">
               <span class="page-subscription-registration-delivery-item-title">
                 1 ДОСТАВКА
               </span>
-            </div>
-            <div class="page-subscription-registration-delivery-item-container">
-              <div class="page-subscription-registration-delivery-item-container-item">
+              </div>
+              <div class="page-subscription-registration-delivery-item-container">
+                <div class="page-subscription-registration-delivery-item-container-item">
                 <span class="page-subscription-registration-delivery-item-container-item-title">Дата:
                   <span class="page-subscription-registration-delivery-item-container-item-value">27.04.2021</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
                   <span class="page-subscription-registration-delivery-item-container-item-value">День рождения</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
                   <span class="page-subscription-registration-delivery-item-container-item-value">25 лет</span>
                 </span>
-              </div>
-              <div class="page-subscription-registration-delivery-item-container-item">
+                </div>
+                <div class="page-subscription-registration-delivery-item-container-item">
                 <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цветок:
                   <span class="page-subscription-registration-delivery-item-container-item-value">Роза</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
                   <span class="page-subscription-registration-delivery-item-container-item-value">Красный</span>
                 </span>
+                </div>
               </div>
-            </div>
-            <div class="page-subscription-registration-delivery-item-container">
+              <div class="page-subscription-registration-delivery-item-container">
+
+              </div>
 
             </div>
-
-          </div>
-          <div class="page-subscription-registration-delivery-item">
-            <div class="d-flex justify-content-center w-100 mb-3">
+            <div class="page-subscription-registration-delivery-item">
+              <div class="d-flex justify-content-center w-100 mb-3">
               <span class="page-subscription-registration-delivery-item-title">
                 2 ДОСТАВКА
               </span>
-            </div>
-            <div class="page-subscription-registration-delivery-item-container">
-              <div class="page-subscription-registration-delivery-item-container-item">
+              </div>
+              <div class="page-subscription-registration-delivery-item-container">
+                <div class="page-subscription-registration-delivery-item-container-item">
                 <span class="page-subscription-registration-delivery-item-container-item-title">Дата:
                   <span class="page-subscription-registration-delivery-item-container-item-value">27.04.2021</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Повод:
                   <span class="page-subscription-registration-delivery-item-container-item-value">День рождения</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Возраст:
                   <span class="page-subscription-registration-delivery-item-container-item-value">25 лет</span>
                 </span>
-              </div>
-              <div class="page-subscription-registration-delivery-item-container-item">
+                </div>
+                <div class="page-subscription-registration-delivery-item-container-item">
                 <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цветок:
                   <span class="page-subscription-registration-delivery-item-container-item-value">Роза</span>
                 </span>
-                <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
+                  <span class="page-subscription-registration-delivery-item-container-item-title">Любимый цвет:
                   <span class="page-subscription-registration-delivery-item-container-item-value">Красный</span>
                 </span>
+                </div>
               </div>
-            </div>
-            <div class="page-subscription-registration-delivery-item-container">
+              <div class="page-subscription-registration-delivery-item-container">
+
+              </div>
 
             </div>
-
           </div>
         </div>
         <span class="page-subscription-registration-cost">
@@ -200,15 +203,21 @@
           </span>
         </span>
         <div class="page-subscription-registration-button">
-          <b-button variant="success" size="lg"  class="page-subscription-registration-button-item" @click="fetchData">Оформить подписку</b-button>
+          <b-button
+            variant="success"
+            size="lg"
+            class="page-subscription-registration-button-item"
+            @click="fetchData">
+            Оформить подписку
+          </b-button>
           <span v-if="status === 'success'" class="mt-2">Данные получены</span>
         </div>
-        <div class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
+        <div v-if="subscribeFieldsShown" class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
           <b-input placeholder="Имя*" style="width: 322px" class="custom_input" />
           <b-input placeholder="Номер телефона*" style="width: 322px" class="custom_input" />
-          <b-button variant="success" size="md" class="custom_button">Подтвердить</b-button>
+          <b-button variant="success" size="md" class="custom_button" @click="acceptOrder">Подтвердить</b-button>
         </div>
-        <div class="congrats custom_item">
+        <div v-if="isSuccessOrderShown" class="congrats custom_item">
           <span class="congrats-text">Спасибо за подписку!</span>
           <span class="congrats-text">Ниже вы можете оплатить первую доставку или сразу весь тариф</span>
           <span class="congrats-hint">Оплатить сразу все со скидкой 5%</span>
@@ -386,7 +395,10 @@ export default {
         'flower_1',
         'flower_2'
       ],
-      currentSlider: null
+      isPurchasesListShown: false,
+      currentSlider: null,
+      subscribeFieldsShown: false,
+      isSuccessOrderShown: false
     }
   },
   created() {
@@ -404,12 +416,26 @@ export default {
     toggleSlider(flag) {
       if (this.slider.length && this.slider.length > 1 && this.slider.findIndex(slider => slider === this.currentSlider) !== 0 && flag === 'last') {
         this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) - 1]
+      } else if (this.slider.length && this.slider.length > 1 && this.slider.findIndex(slider => slider === this.currentSlider) === 0 && flag === 'last') {
+        this.currentSlider = this.slider[this.slider.length - 1]
       } else if (this.slider.findIndex(slider => slider === this.currentSlider) !== (this.slider.length - 1) && flag === 'next') {
         this.currentSlider = this.slider[this.slider.findIndex(slider => slider === this.currentSlider) + 1]
+      } else if (this.slider.findIndex(slider => slider === this.currentSlider) === (this.slider.length - 1) && flag === 'next') {
+        this.currentSlider = this.slider[0]
       }
     },
     fetchData() {
       this.$store.dispatch('data/fetchData')
+      this.subscribeFlowers()
+    },
+    subscribeFlowers () {
+      this.subscribeFieldsShown = !this.subscribeFieldsShown
+    },
+    togglePurchasesList () {
+      this.isPurchasesListShown = !this.isPurchasesListShown
+    },
+    acceptOrder () {
+      this.isSuccessOrderShown = !this.isSuccessOrderShown
     }
   }
 }
