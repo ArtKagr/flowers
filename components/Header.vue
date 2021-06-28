@@ -19,12 +19,27 @@
       </li>
     </ul>
     <div class="header-contacts">
-      <span class="header-contacts-phone">+7 (988) 354 44 44</span>
-      <a href="tel:+79883544444">
-        <b-button variant="outline-primary" class="header-contacts-button custom_button">Обратный звонок</b-button>
-      </a>
+      <a href="tel:+79883544444"><span class="header-contacts-phone">+7 (988) 354 44 44</span></a>
+      <b-button @click="showModal" variant="outline-primary" class="header-contacts-button custom_button">Обратный звонок</b-button>
+
+      <b-modal ref="my-modal"  hide-footer title="Введите номер телефона">
+        <form ref="form" @submit.stop.prevent="handleSubmit">
+          <b-form-group
+            invalid-feedback="Name is required"
+            :state="nameState"
+          >
+            <b-form-input
+              id="name-input"
+              v-model="name"
+              :state="nameState"
+              required
+            ></b-form-input>
+          </b-form-group>
+        </form>
+        <b-button class="btn btn-outline-primary" style="padding: 10px" variant="outline-danger" block @click="hideModal">заказать звонок</b-button>
+      </b-modal>
     </div>
-    <Basket class="basket" />
+    <img src="../assets/images/basket.png" class="basket">
     <Phone class="phone" />
 
   </div>
@@ -38,6 +53,53 @@ import Phone from "./icons/Phone";
 export default {
 name: "Header",
   components: {Phone, Basket, BurgerMenu, Logo},
+  data() {
+    return {
+      name: '',
+      nameState: null,
+      submittedNames: []
+    }
+  },
+  methods: {
+    showModal() {
+      this.$refs['my-modal'].show()
+    },
+    hideModal() {
+      this.$refs['my-modal'].hide()
+    },
+    toggleModal() {
+      // We pass the ID of the button that we want to return focus to
+      // when the modal has hidden
+      this.$refs['my-modal'].toggle('#toggle-btn')
+    },
+    checkFormValidity() {
+      const valid = this.$refs.form.checkValidity()
+      this.nameState = valid
+      return valid
+    },
+    resetModal() {
+      this.name = ''
+      this.nameState = null
+    },
+    handleOk(bvModalEvt) {
+      // Prevent modal from closing
+      bvModalEvt.preventDefault()
+      // Trigger submit handler
+      this.handleSubmit()
+    },
+    handleSubmit() {
+      // Exit when the form isn't valid
+      if (!this.checkFormValidity()) {
+        return
+      }
+      // Push the name to submitted names
+      this.submittedNames.push(this.name)
+      // Hide the modal manually
+      this.$nextTick(() => {
+        this.$bvModal.hide('modal-prevent-closing')
+      })
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,19 +1,17 @@
 <template>
-  <div class="page">
-    <section class="page-slider">
-      <div class="d-flex align-items-center">
-        <div style="z-index: 100;" @click="toggleSlider('last')">
-          <CircleRowLeft class="circle_row_left" />
-        </div>
-        <img v-if="currentSlider === 'slider'" class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
-        <img v-else-if="currentSlider === 'flower_1'" class="page-slider-image" src="../assets/images/IMG_6593 1.jpg" alt="flower_1" />
-        <img v-else-if="currentSlider === 'flower_2'" class="page-slider-image" src="../assets/images/IMG_5294 2.jpg" alt="flower_2" />
-        <img class="page-slider-xs_image" src="../assets/images/Frame 7.jpg" alt="slider_xs" />
-        <div style="z-index: 100;" @click="toggleSlider('next')">
-          <CircleRowRight class="circle_row_right" />
-        </div>
-      </div>
-    </section>
+   <div class="page">
+     <div class="agile-slider">
+       <agile :autoplay="true" :autoplaySpeed="3000" :dots="false" :infinite="true">
+         <div class="slide">
+           <img class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
+         </div>
+         <div class="slide">
+           <img class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
+         </div>
+         <template slot="prevButton"><CircleRowLeft class="circle_row_left" /></template>
+         <template slot="nextButton"><CircleRowRight class="circle_row_right" /></template>
+       </agile>
+     </div>
     <section class="page-steps">
       <h2 class="page-steps-title">Заголовок</h2>
       <div class="page-steps-container">
@@ -210,7 +208,7 @@
             @click="fetchData">
             Оформить подписку
           </b-button>
-          <span v-if="status === 'success'" class="mt-2">Данные получены</span>
+<!--          <span v-if="status === 'success'" class="mt-2">Данные получены</span>-->
         </div>
         <div v-if="subscribeFieldsShown" class="d-flex align-items-center w-100 mt-4 justify-content-center custom_item">
           <b-input placeholder="Имя*" style="width: 322px" class="custom_input" />
@@ -374,11 +372,13 @@ import FirstXs from "../components/icons/FirstXs";
 import SecondXs from "../components/icons/SecondXs";
 import ThirdXs from "../components/icons/ThirdXs";
 import ForthXs from "../components/icons/ForthXs";
+import { VueAgile } from 'vue-agile'
 
 export default {
   components: {
     ForthXs,
     ThirdXs,
+    agile: VueAgile,
     SecondXs,
     FirstXs, CircleRowRight, CircleRowLeft, Options, ChevronUp, ChevronBottom, Forth, Third, Second, First},
   data() {
@@ -440,7 +440,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 
 .step {
   @media screen and (max-width: 768px) {
@@ -572,5 +572,17 @@ export default {
 
 .custom_button {
   padding: 4px 30px;
+}
+.agile__nav-button {
+  border: 0;
+  background: none;
+  position: absolute;
+  top: 40%;
+  &.agile__nav-button--next {
+    right: -50px;
+  }
+  &.agile__nav-button--prev {
+    left: -50px;
+  }
 }
 </style>
