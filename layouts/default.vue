@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column w-100 overflow-hidden">
     <Header />
     <Nuxt />
     <Footer />
