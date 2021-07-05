@@ -495,6 +495,10 @@ export default {
     font-weight: 500;
     font-size: 18px;
     text-align: center;
+
+    @media screen and (max-width: 769px) {
+      margin-bottom: 16px;
+    }
   }
 
   &-hint {
@@ -506,6 +510,7 @@ export default {
 
     @media screen and (max-width: 769px) {
       text-align: center;
+      order: 4;
     }
   }
 
