@@ -1,6 +1,7 @@
 html {
   font-family: Roboto, sans-serif;
   width: 1200px;
+  margin: 0 auto;
   @media screen and (max-width: 769px) {
     width: 100%;
   }
@@ -64,11 +65,9 @@ html {
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    margin: 0 auto;
   }
 
   &-slider {
-    margin: 0 auto;
 
     &-image {
       width: 100%;
@@ -862,5 +861,14 @@ html {
   &:hover {
     text-decoration: none;
     color: black;
+  }
+}
+
+.slider {
+  width: 1125px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 769px) {
+    width: 100%;
   }
 }

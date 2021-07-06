@@ -1,7 +1,7 @@
 <template>
    <div class="page">
      <div class="agile-slider">
-       <agile :autoplay="true" :autoplaySpeed="3000" :dots="false" :infinite="true">
+       <agile :autoplay="true" :autoplaySpeed="3000" :dots="false" :infinite="true" class="slider">
          <div class="slide">
            <img class="page-slider-image" src="../assets/images/slider.jpg" alt="slider" />
          </div>
