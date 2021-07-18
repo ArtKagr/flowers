@@ -6,6 +6,7 @@
     <rect width="21" height="1" rx="0.5" fill="#624F3F"/>
   </svg>
   <ul class="header-menu-mobile" v-show="showMenuUl">
+    <li class="close-menu" @click="closeMenu">×</li>
     <li class="header-menu-item">
       <a class="header-menu-item-link" href="#rate">Тарифы</a>
     </li>
@@ -18,7 +19,6 @@
     <li class="header-menu-item">
       <a class="header-menu-item-link" href="#best_flowers">Галерея</a>
     </li>
-    <li class="close-menu" @click="closeMenu">×</li>
   </ul>
   </div>
 </template>
@@ -41,11 +41,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.close-menu{
-  font-size: 40px;
+.close-menu {
   position: absolute;
-  right: 5px;
-  top: 0;
+  right: 40px;
+  top: 10px;
+  font-size: 40px;
   list-style: none;
 }
 .header-menu-mobile {

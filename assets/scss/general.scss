@@ -329,6 +329,11 @@ html {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          padding-left: 34px;
+
+          @media screen and (max-width: 769px) {
+            padding-left: 0;
+          }
 
           &-photo {
             width: 200px;
@@ -867,6 +872,35 @@ html {
 .slider {
   width: 1125px;
   margin: 0 auto;
+
+  &.-subscription {
+    width: 655px;
+    padding-left: 34px;
+
+    @media screen and (max-width: 769px) {
+      padding-left: 0;
+    }
+  }
+
+  &.-reviews {
+    width: 1120px;
+
+    .circle_row_left {
+      margin-left: 10px;
+    }
+
+    .slide {
+      display: flex;
+
+      .page-reviews-container-card {
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
 
   @media screen and (max-width: 769px) {
     width: 100%;

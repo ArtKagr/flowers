@@ -29,89 +29,94 @@
     <section class="page-subscription" id="rate">
       <h2 class="page-subscription-title">Выберите свою подписку</h2>
       <div class="page-subscription-container">
-        <a href="#current_card" class="custom_link">
-          <div class="page-subscription-container-card -first">
+        <a
+          v-for="subscription in subscriptions"
+          :key="subscription.flag"
+          href="#current_card"
+          class="custom_link"
+          @click="setActiveSubscriptionFlag(subscription.flag)"
+        >
+          <div
+            class="page-subscription-container-card"
+            :class="`-${subscription.flag}`"
+          >
             <div class="page-subscription-container-card-image">
               <div class="page-subscription-container-card-image-sale">
-                <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
-                <span class="page-subscription-container-card-image-sale-cost">3 760 ₽</span>
+                <span
+                  class="page-subscription-container-card-image-sale-title"
+                  v-text="'ВЫ ЭКОНОМИТЕ'"
+                />
+                <span
+                  class="page-subscription-container-card-image-sale-cost"
+                  v-text="`${subscription.discount} ₽`"
+                />
               </div>
             </div>
             <div class="page-subscription-container-card-description">
-              <span class="page-subscription-container-card-description-title">Standart</span>
-              <span class="page-subscription-container-card-description-subtitle">
-              Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </span>
+              <span
+                class="page-subscription-container-card-description-title"
+                v-text="subscription.title"
+              />
+              <span
+                class="page-subscription-container-card-description-subtitle"
+                v-text="subscription.subtitle"
+              />
               <div class="page-subscription-container-card-description-container">
-                <span class="page-subscription-container-card-description-container-old_price">3 900 ₽</span>
+                <span
+                  class="page-subscription-container-card-description-container-old_price"
+                  v-text="`${subscription.old_price} ₽`"
+                />
                 <div class="page-subscription-container-card-description-container-new_price">
-                  <span class="page-subscription-container-card-description-container-new_price-title">5 900 ₽</span>
-                  <span class="page-subscription-container-card-description-container-new_price-subtitle">за 10 доставок в течение года</span>
+                  <span
+                    class="page-subscription-container-card-description-container-new_price-title"
+                    v-text="`${subscription.new_price} ₽`"
+                  />
+                  <span
+                    class="page-subscription-container-card-description-container-new_price-subtitle"
+                    v-text="'за 10 доставок в течение года'"
+                  />
                 </div>
               </div>
-              <b-button variant="outline-primary" class="page-subscription-container-card-description-button">В корзину</b-button>
-            </div>
-          </div>
-        </a>
-        <a href="#current_card" class="custom_link">
-          <div class="page-subscription-container-card -second">
-            <div class="page-subscription-container-card-image">
-              <div class="page-subscription-container-card-image-sale">
-                <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
-                <span class="page-subscription-container-card-image-sale-cost">3 760 ₽</span>
-              </div>
-            </div>
-            <div class="page-subscription-container-card-description">
-              <span class="page-subscription-container-card-description-title">Standart</span>
-              <span class="page-subscription-container-card-description-subtitle">
-              Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </span>
-              <div class="page-subscription-container-card-description-container">
-                <span class="page-subscription-container-card-description-container-old_price">3 900 ₽</span>
-                <div class="page-subscription-container-card-description-container-new_price">
-                  <span class="page-subscription-container-card-description-container-new_price-title">5 900 ₽</span>
-                  <span class="page-subscription-container-card-description-container-new_price-subtitle">за 10 доставок в течение года</span>
-                </div>
-              </div>
-              <b-button variant="outline-primary" class="page-subscription-container-card-description-button">В корзину</b-button>
-            </div>
-          </div>
-        </a>
-        <a href="#current_card" class="custom_link">
-          <div class="page-subscription-container-card -third">
-            <div class="page-subscription-container-card-image">
-              <div class="page-subscription-container-card-image-sale">
-                <span class="page-subscription-container-card-image-sale-title">ВЫ ЭКОНОМИТЕ</span>
-                <span class="page-subscription-container-card-image-sale-cost">3 760 ₽</span>
-              </div>
-            </div>
-            <div class="page-subscription-container-card-description">
-              <span class="page-subscription-container-card-description-title">Standart</span>
-              <span class="page-subscription-container-card-description-subtitle">
-              Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </span>
-              <div class="page-subscription-container-card-description-container">
-                <span class="page-subscription-container-card-description-container-old_price">3 900 ₽</span>
-                <div class="page-subscription-container-card-description-container-new_price">
-                  <span class="page-subscription-container-card-description-container-new_price-title">5 900 ₽</span>
-                  <span class="page-subscription-container-card-description-container-new_price-subtitle">за 10 доставок в течение года</span>
-                </div>
-              </div>
-              <b-button variant="outline-primary" class="page-subscription-container-card-description-button">В корзину</b-button>
+              <b-button
+                variant="outline-primary"
+                class="page-subscription-container-card-description-button"
+                v-text="'В корзину'"
+              />
             </div>
           </div>
         </a>
       </div>
-      <div class="page-subscription-current_card" id="current_card">
-        <div class="page-subscription-current_card-gallery">
-          <div class="page-subscription-current_card-gallery-main_photo" />
-          <div class="page-subscription-current_card-gallery-photos">
-            <div class="page-subscription-current_card-gallery-photos-photo" />
-            <div class="page-subscription-current_card-gallery-photos-photo" />
-            <div class="page-subscription-current_card-gallery-photos-photo" />
+      <div class="page-subscription-current_card flex-column" id="current_card">
+        <h2
+          class="page-subscription-title"
+          v-text="activeSubscription.title"
+        />
+        <div class="d-flex">
+          <div class="page-subscription-current_card-gallery">
+            <agile
+              :autoplay="true"
+              :autoplaySpeed="3000"
+              :dots="false"
+              :infinite="true"
+              class="slider -subscription"
+            >
+              <div class="slide">
+                <div class="page-subscription-current_card-gallery-main_photo" />
+              </div>
+              <div class="slide">
+                <div class="page-subscription-current_card-gallery-main_photo" />
+              </div>
+              <template slot="prevButton"><CircleRowLeft class="circle_row_left -description" /></template>
+              <template slot="nextButton"><CircleRowRight class="circle_row_right  -description" /></template>
+            </agile>
+            <div class="page-subscription-current_card-gallery-photos">
+              <div class="page-subscription-current_card-gallery-photos-photo" />
+              <div class="page-subscription-current_card-gallery-photos-photo" />
+              <div class="page-subscription-current_card-gallery-photos-photo" />
+            </div>
           </div>
+          <Options />
         </div>
-        <Options />
       </div>
       <div class="page-subscription-registration">
         <span class="page-subscription-registration-hint">
@@ -230,33 +235,45 @@
     <section class="page-reviews" id="reviews">
       <h2 class="page-reviews-title">Отзывы клиентов</h2>
       <div class="page-reviews-container">
-        <div class="page-reviews-container-card -first">
-          <div class="page-reviews-container-card-image" />
-          <div class="page-reviews-container-card-description">
-            anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod  tempor ut labore et dolore magna consectetur
-            adipiscing elit
-            <span class="page-reviews-container-card-description-more">... ещё</span>
+        <agile
+          :autoplay="true"
+          :autoplaySpeed="3000"
+          :dots="false"
+          :infinite="true"
+          class="slider -reviews"
+        >
+          <div class="slide">
+            <div class="page-reviews-container-card -first">
+              <div class="page-reviews-container-card-image" />
+              <div class="page-reviews-container-card-description">
+                anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod  tempor ut labore et dolore magna consectetur
+                adipiscing elit
+                <span class="page-reviews-container-card-description-more">... ещё</span>
+              </div>
+            </div>
+            <div class="page-reviews-container-card -second">
+              <div class="page-reviews-container-card-image" />
+              <div class="page-reviews-container-card-description">
+                anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod  tempor ut labore et dolore magna consectetur
+                adipiscing elit
+                <span class="page-reviews-container-card-description-more">... ещё</span>
+              </div>
+            </div>
+            <div class="page-reviews-container-card -third">
+              <div class="page-reviews-container-card-image" />
+              <div class="page-reviews-container-card-description">
+                anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod  tempor ut labore et dolore magna consectetur
+                adipiscing elit
+                <span class="page-reviews-container-card-description-more">... ещё</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="page-reviews-container-card -second">
-          <div class="page-reviews-container-card-image" />
-          <div class="page-reviews-container-card-description">
-            anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod  tempor ut labore et dolore magna consectetur
-            adipiscing elit
-            <span class="page-reviews-container-card-description-more">... ещё</span>
-          </div>
-        </div>
-        <div class="page-reviews-container-card -third">
-          <div class="page-reviews-container-card-image" />
-          <div class="page-reviews-container-card-description">
-            anna_m Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod  tempor ut labore et dolore magna consectetur
-            adipiscing elit
-            <span class="page-reviews-container-card-description-more">... ещё</span>
-          </div>
-        </div>
+          <template slot="prevButton"><CircleRowLeft class="circle_row_left -description" /></template>
+          <template slot="nextButton"><CircleRowRight class="circle_row_right  -description" /></template>
+        </agile>
       </div>
     </section>
     <section class="page-think" id="think">
@@ -398,7 +415,34 @@ export default {
       isPurchasesListShown: false,
       currentSlider: null,
       subscribeFieldsShown: false,
-      isSuccessOrderShown: false
+      isSuccessOrderShown: false,
+      activeSubscriptionFlag: 'first',
+      subscriptions: [
+        {
+          title: 'Standard',
+          subtitle: 'Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          old_price: 3900,
+          new_price: 5900,
+          discount: 3760,
+          flag: 'first'
+        },
+        {
+          title: 'Standard 1',
+          discount: 3760,
+          subtitle: 'Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          old_price: 3900,
+          new_price: 5900,
+          flag: 'second'
+        },
+        {
+          title: 'Standard 2',
+          discount: 3760,
+          subtitle: 'Lorem ipsum ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          old_price: 3900,
+          new_price: 5900,
+          flag: 'third'
+        }
+      ]
     }
   },
   created() {
@@ -407,7 +451,10 @@ export default {
   computed: {
     status() {
       return this.$store.getters['data/getStatus']
-    }
+    },
+    activeSubscription () {
+      return this.subscriptions.find(subscription => subscription.flag === this.activeSubscriptionFlag)
+    },
   },
   methods: {
     toggleThinkItem(field) {
@@ -436,6 +483,9 @@ export default {
     },
     acceptOrder () {
       this.isSuccessOrderShown = !this.isSuccessOrderShown
+    },
+    setActiveSubscriptionFlag (flag) {
+      this.activeSubscriptionFlag = flag
     }
   }
 }
@@ -525,6 +575,14 @@ export default {
   margin-right: -45px;
   cursor: pointer;
   z-index: 100;
+
+  &.-description {
+    margin-left: 34px;
+
+    @media screen and (max-width: 769px) {
+      margin-left: 0;
+    }
+  }
 
   @media screen and (max-width: 769px) {
     display: none;
