@@ -28,64 +28,70 @@
     <section class="page-video" />
     <section class="page-subscription" id="rate">
       <h2 class="page-subscription-title">Выберите свою подписку</h2>
-      <div class="page-subscription-container">
-        <a
-          v-for="subscription in subscriptions"
-          :key="subscription.flag"
-          href="#current_card"
-          class="custom_link"
-          @click="setActiveSubscriptionFlag(subscription.flag)"
-        >
-          <div
-            class="page-subscription-container-card"
-            :class="`-${subscription.flag}`"
-          >
-            <div class="page-subscription-container-card-image">
-              <div class="page-subscription-container-card-image-sale">
+      <agile :autoplay="true" :autoplaySpeed="3000" :dots="false" :infinite="true" class="slider">
+        <div class="slide">
+          <div class="page-subscription-container">
+            <a
+              v-for="subscription in subscriptions"
+              :key="subscription.flag"
+              href="#current_card"
+              class="custom_link"
+              @click="setActiveSubscriptionFlag(subscription.flag)"
+            >
+              <div
+                class="page-subscription-container-card"
+                :class="`-${subscription.flag}`"
+              >
+                <div class="page-subscription-container-card-image">
+                  <div class="page-subscription-container-card-image-sale">
                 <span
                   class="page-subscription-container-card-image-sale-title"
                   v-text="'ВЫ ЭКОНОМИТЕ'"
                 />
-                <span
-                  class="page-subscription-container-card-image-sale-cost"
-                  v-text="`${subscription.discount} ₽`"
-                />
-              </div>
-            </div>
-            <div class="page-subscription-container-card-description">
+                    <span
+                      class="page-subscription-container-card-image-sale-cost"
+                      v-text="`${subscription.discount} ₽`"
+                    />
+                  </div>
+                </div>
+                <div class="page-subscription-container-card-description">
               <span
                 class="page-subscription-container-card-description-title"
                 v-text="subscription.title"
               />
-              <span
-                class="page-subscription-container-card-description-subtitle"
-                v-text="subscription.subtitle"
-              />
-              <div class="page-subscription-container-card-description-container">
+                  <span
+                    class="page-subscription-container-card-description-subtitle"
+                    v-text="subscription.subtitle"
+                  />
+                  <div class="page-subscription-container-card-description-container">
                 <span
                   class="page-subscription-container-card-description-container-old_price"
                   v-text="`${subscription.old_price} ₽`"
                 />
-                <div class="page-subscription-container-card-description-container-new_price">
+                    <div class="page-subscription-container-card-description-container-new_price">
                   <span
                     class="page-subscription-container-card-description-container-new_price-title"
                     v-text="`${subscription.new_price} ₽`"
                   />
-                  <span
-                    class="page-subscription-container-card-description-container-new_price-subtitle"
-                    v-text="'за 10 доставок в течение года'"
+                      <span
+                        class="page-subscription-container-card-description-container-new_price-subtitle"
+                        v-text="'за 10 доставок в течение года'"
+                      />
+                    </div>
+                  </div>
+                  <b-button
+                    variant="outline-primary"
+                    class="page-subscription-container-card-description-button"
+                    v-text="'В корзину'"
                   />
                 </div>
               </div>
-              <b-button
-                variant="outline-primary"
-                class="page-subscription-container-card-description-button"
-                v-text="'В корзину'"
-              />
-            </div>
+            </a>
           </div>
-        </a>
-      </div>
+        </div>
+        <template slot="prevButton"><CircleRowLeft class="circle_row_left" /></template>
+        <template slot="nextButton"><CircleRowRight class="circle_row_right" /></template>
+      </agile>
       <div class="page-subscription-current_card flex-column" id="current_card">
         <h2
           class="page-subscription-title"
