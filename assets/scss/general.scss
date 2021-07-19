@@ -307,7 +307,6 @@ html {
         @media screen and (max-width: 769px) {
           margin: 0 auto 20px;
           width: 100%;
-          padding: 0 18px;
         }
 
         &-main_photo {
@@ -873,17 +872,33 @@ html {
   width: 1125px;
   margin: 0 auto;
 
+  @media screen and (max-width: 769px) {
+    width: 100%;
+  }
+
   &.-subscription {
     width: 655px;
     padding-left: 34px;
 
     @media screen and (max-width: 769px) {
+      width: 100%;
       padding-left: 0;
+    }
+
+    .circle_row_left {
+
+      @media screen and (max-width: 769px) {
+        margin-left: 30px;
+      }
     }
   }
 
   &.-reviews {
     width: 1120px;
+
+    @media screen and (max-width: 769px) {
+      width: 100%;
+    }
 
     .circle_row_left {
       margin-left: 10px;

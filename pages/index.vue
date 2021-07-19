@@ -277,8 +277,8 @@
               </div>
             </div>
           </div>
-          <template slot="prevButton"><CircleRowLeft class="circle_row_left -description" /></template>
-          <template slot="nextButton"><CircleRowRight class="circle_row_right  -description" /></template>
+          <template slot="prevButton"><CircleRowLeft class="circle_row_left -reviews" /></template>
+          <template slot="nextButton"><CircleRowRight class="circle_row_right  -reviews" /></template>
         </agile>
       </div>
     </section>
@@ -590,8 +590,17 @@ export default {
     }
   }
 
+  &.-reviews {
+    margin-left: 34px;
+
+    @media screen and (max-width: 769px) {
+      margin-left: 40px;
+    }
+  }
+
   @media screen and (max-width: 769px) {
-    display: none;
+    margin-left: 40px;
+    transform: translateY(-20px);
   }
 
 }
@@ -602,7 +611,8 @@ export default {
   z-index: 100;
 
   @media screen and (max-width: 769px) {
-    display: none;
+    margin-right: 40px;
+    transform: translateY(-20px);
   }
 }
 
