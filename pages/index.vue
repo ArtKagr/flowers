@@ -211,7 +211,7 @@
             9 900 ₽
           </span>
         </span>
-        <div class="page-subscription-registration-button">
+        <div class="page-subscription-registration-button" id="subscribe-form">
           <b-button
             variant="success"
             size="lg"
@@ -483,12 +483,25 @@ export default {
     },
     subscribeFlowers () {
       this.subscribeFieldsShown = !this.subscribeFieldsShown
+      if(this.subscribeFieldsShown)
+        window.scroll({
+          top: document.getElementById('subscribe-form').offsetTop + 100,
+          left: 0,
+          behavior: 'smooth'
+        });
     },
     togglePurchasesList () {
       this.isPurchasesListShown = !this.isPurchasesListShown
     },
     acceptOrder () {
       this.isSuccessOrderShown = !this.isSuccessOrderShown
+      if(this.isSuccessOrderShown)
+        if(this.subscribeFieldsShown)
+          window.scroll({
+            top: document.getElementById('subscribe-form').offsetTop + 250,
+            left: 0,
+            behavior: 'smooth'
+          });
     },
     setActiveSubscriptionFlag (flag) {
       this.activeSubscriptionFlag = flag
