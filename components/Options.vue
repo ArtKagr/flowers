@@ -103,6 +103,11 @@
       />
       <span>Применять ко всем доставкам</span>
     </div>
+    <b-modal ref="modal-approve"  hide-footer title="Подтвердите нажатие">
+      <p>Вы хотите применить данные по текущей доставке ко всем доставкам? Если вы уже вводили данные в других доставках, они будут заменены</p>
+      <b-button class="btn btn-outline-primary" style="padding: 10px" variant="outline-danger" block @click="okModal">Подтвердить</b-button>
+      <b-button class="btn btn-outline-primary" style="padding: 10px" variant="outline-danger" block @click="cancelModal">Отмена</b-button>
+    </b-modal>
   </div>
 </template>
 
@@ -116,13 +121,27 @@ export default {
   components: {CustomCounter, CheckboxChecked, Checkbox, CustomSelect },
   data() {
     return {
+      approveState: null,
       useAllPurchase: false,
       additionalWishes: false
     }
   },
   methods: {
+    forAllDelivery(){
+      this.approveState = true;
+      this.$refs['modal-approve'].show()
+    },
+    cancelModal(){
+      this.useAllPurchase = false;
+      this.$refs['modal-approve'].hide()
+    },
+    okModal(){
+      this.$refs['modal-approve'].hide()
+    },
     toggleValue() {
       this.useAllPurchase = !this.useAllPurchase
+      if(this.useAllPurchase)
+        this.$refs['modal-approve'].show()
     },
     toggleAdditionalWishes () {
       this.additionalWishes = !this.additionalWishes

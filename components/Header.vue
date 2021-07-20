@@ -41,7 +41,6 @@
     </div>
     <img src="../assets/images/basket.png" class="basket">
     <Phone class="phone" />
-
   </div>
 </template>
 

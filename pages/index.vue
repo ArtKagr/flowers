@@ -97,7 +97,7 @@
           class="page-subscription-title"
           v-text="activeSubscription.title"
         />
-        <div class="d-flex">
+        <div class="d-flex flex-wrap flex-md-nowrap flex-lg-nowrap flex-xl-nowrap">
           <div class="page-subscription-current_card-gallery">
             <agile
               :autoplay="true"
@@ -242,13 +242,13 @@
       <h2 class="page-reviews-title">Отзывы клиентов</h2>
       <div class="page-reviews-container">
         <agile
-          :autoplay="true"
+          :autoplay="false"
           :autoplaySpeed="3000"
           :dots="false"
           :infinite="true"
           class="slider -reviews"
         >
-          <div class="slide">
+          <div class="slide align-items-center">
             <div class="page-reviews-container-card -first">
               <div class="page-reviews-container-card-image" />
               <div class="page-reviews-container-card-description">
